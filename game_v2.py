@@ -14,22 +14,36 @@ def random_predict(number: int = 1) -> int:
     Returns:
         int: Число попыток
     """
+    
     count = 0
-    
+    predict_number = np.random.randint(1, 101) # предполагаемое число
     while True:
-        count+=1
-        predict_number = int(input("Угадай число от 1 до 100: "))
-    
-        if predict_number > number:
-            print("Число должно быть меньше!")
-
-        elif predict_number < number:
-            print("Число должно быть больше!")
-    
+        count += 1
+        
+        if number == predict_number:
+            break # выход из цикла, если угадали
+        elif number > predict_number:
+            predict_number=predict_number/2
         else:
-            print(f"Вы угадали число! Это число = {number}, за {count} попыток")
-            break #конец игры выход из цикла
-    return count
+            predict_number=predict_number*2
+    return(count)
+    
+    #count = 0
+    
+    #while True:
+    #    count+=1
+    #    predict_number = int(input("Угадай число от 1 до 100: "))
+    
+   #     if predict_number > number:
+    #        print("Число должно быть меньше!")
+
+     #   elif predict_number < number:
+      #      print("Число должно быть больше!")
+    
+       # else:
+        #    print(f"Вы угадали число! Это число = {number}, за {count} попыток")
+         #   break #конец игры выход из цикла
+    # return count
 
 
  
