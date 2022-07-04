@@ -8,14 +8,18 @@ import numpy as np
 def random_predict(number:int=1) -> int:
     count=0
     predict_number = np.random.randint(1, 101) #предполагаемое число
-
+    
+    #if predict_number>number:
+    #    predict_number=predict_number//2    
     while True:
         count += 1
         if predict_number > number:
-            predict_number=predict_number-1
+            delta=predict_number-predict_number//2
+            predict_number=predict_number-delta
 
         elif predict_number < number:
-            predict_number=predict_number+1
+            delta=(100-predict_number)//2
+            predict_number=predict_number+delta
 
         else:
             #print(f"Вы угадали число! Это число = {number}, за {count} попыток")
